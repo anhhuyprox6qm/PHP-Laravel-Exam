@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BookModel;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     public function list(Request $request)
     {
-        $list = Book::query()->with('author');
+        $list = BookModel::query()->with('author');
         $search = $request->get('search');
         if ($search)
         {

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFPTAptechLibraryControllersTable extends Migration
+class CreateAuthorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateFPTAptechLibraryControllersTable extends Migration
      */
     public function up()
     {
-        Schema::create('f_p_t_aptech_library_controllers', function (Blueprint $table) {
+        Schema::create('authors', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -26,6 +27,6 @@ class CreateFPTAptechLibraryControllersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('f_p_t_aptech_library_controllers');
+        Schema::dropIfExists('authors');
     }
 }
